@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Native Market</string>
+    <string name="hello">Hello World, FrontActivity!</string>
+    <string name="appshello">Native Market</string>
+    <string name="desktopshello">Native Market</string>
+    <string name="systemshello">Native Market</string>
+</resources>
