@@ -6,20 +6,15 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.TabActivity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TabHost;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 public class FrontActivity extends TabActivity {
@@ -31,9 +26,18 @@ public class FrontActivity extends TabActivity {
 
         LayoutInflater.from(this).inflate(R.layout.tabs1, tabHost.getTabContentView(), true);
 
+        
         tabHost.addTab(tabHost.newTabSpec("tab1")
                 .setIndicator("Applications")
-                .setContent(R.id.view1));
+                /*.setContent(R.id.view1));*/
+                .setContent(new TabHost.TabContentFactory() {
+					public View createTabContent(String tag) {
+//				        ListView apps = new ListView(FrontActivity.this);
+//				        LayoutInflater.from(FrontActivity.this).inflate(R.layout.appsview, apps, false);
+//				        return apps;
+						return new AppsView(FrontActivity.this);
+					}
+                }));
         tabHost.addTab(tabHost.newTabSpec("tab3")
                 .setIndicator("Systems")
                 .setContent(R.id.view2));
@@ -41,11 +45,14 @@ public class FrontActivity extends TabActivity {
                 .setIndicator("Desktops")
                 .setContent(R.id.view3));
 
-	    ListView apps = (ListView)findViewById(R.id.view1);
-   	    apps.setAdapter(new AppsAdapter(getApps()));  
-   	    apps.setTextFilterEnabled(true);
-   	    
+//	    ViewGroup apps = (ViewGroup)findViewById(R.id.view1);
+//   	    apps.setAdapter(new AppsAdapter(getApps()));  
+//   	    apps.setTextFilterEnabled(true);
+//        LayoutInflater.from(this).inflate(R.layout.appsview, apps, false);
+
+        
 	    ListView systems = (ListView)findViewById(R.id.view2);
+	    
 /*
 	    systems.setAdapter(new SimpleAdapter(this, getSystems(),
 	            R.layout.systemsitem, new String[] { "title" },
@@ -61,18 +68,7 @@ public class FrontActivity extends TabActivity {
 
     }
 
-    protected List<Map<String, Object>> getApps() {
-    	List<Map<String, Object>> apps = new ArrayList<Map<String, Object>>();
-        Map<String, Object> item = new HashMap<String, Object>();
-        item.put("icon", R.drawable.abiword_48);
-        item.put("title", "Abiword - Word Processor");
-        apps.add(item);
-        item = new HashMap<String, Object>();
-        item.put("icon", R.drawable.chromiumbsu);
-        item.put("title", "Chromium BSU - Space Shooter");       
-        apps.add(item);
-        return apps;
-    }
+
     
     protected List<Map<String, Object>> getSystems() {
     	List<Map<String, Object>> systems = new ArrayList<Map<String, Object>>();
@@ -101,40 +97,6 @@ public class FrontActivity extends TabActivity {
         item.put("title", "FreeSmartphone");
         desktops.add(item);
         return desktops;
-    }
-    
-    public class AppsAdapter extends BaseAdapter {
-    	private List<Map<String, Object>> mApps;
-    	
-    	public Map<String, Object> getItem(int position) {
-    		return mApps.get(position);
-    	}
-    	
-    	public AppsAdapter(List<Map<String,Object>> systems) {
-    		mApps = systems;
-    	}
-    	
-    	public View getView(int position, View convertView, ViewGroup parent) {
-            Map<String,Object> info = mApps.get(position % mApps.size());
-    		
-    		View item = LayoutInflater.from(FrontActivity.this).inflate(R.layout.appsitem, null);
-    		ImageView i = (ImageView)item.findViewById(R.id.appsitemicon);
-    		TextView tv = (TextView)item.findViewById(R.id.appsitemtitle);
-            Drawable icon = FrontActivity.this.getResources().getDrawable(((Integer)(mApps.get(position).get("icon"))).intValue());
-            i.setImageDrawable(icon);
-//          i.setScaleType(ImageView.ScaleType.FIT_CENTER);
-//          final int w = (int) (36 * FrontActivity.this.getResources().getDisplayMetrics().density + 0.5f);
-//          i.setLayoutParams(new GridView.LayoutParams(w, w));
-            tv.setText((String)info.get("title"));
-            return item;
-    	}
-    	
-        public final int getCount() { return mApps.size(); }
-
-        public final long getItemId(int position) {
-            return position;
-        }
-
     }
     
     public class SystemsAdapter extends BaseAdapter {
