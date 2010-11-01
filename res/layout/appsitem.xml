@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableRow
+<RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:clickable="true">
+  android:layout_width="fill_parent"
+  android:layout_height="?android:attr/listPreferredItemHeight"
+  android:clickable="true" >
 <ImageView
 	android:id="@+id/appsitemicon"
-	android:layout_width="wrap_content"
+	android:layout_width="64dip"
 	android:layout_height="wrap_content"
 	android:src="@drawable/ubuntu"
-	android:padding="3dip" />
+	android:padding="6dip" />
 <TextView
 	android:id="@+id/appsitemtitle"
 	android:layout_width="wrap_content"
-	android:layout_height="fill_parent"
-	android:textSize="22dip" />
-</TableRow>
+	android:layout_height="48dip"
+	android:layout_toRightOf="@id/appsitemicon"
+	android:layout_alignParentRight="true"
+	android:textSize="32dip" />
+</RelativeLayout>
