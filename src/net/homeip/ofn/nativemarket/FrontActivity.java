@@ -42,11 +42,6 @@ public class FrontActivity extends TabActivity {
                 .setContent(R.id.view3));
 
 	    ListView apps = (ListView)findViewById(R.id.view1);
-	    /*
-	    	    systems.setAdapter(new SimpleAdapter(this, getSystems(),
-	    	            R.layout.systemsitem, new String[] { "title" },
-	    	            new int[] { 0 }));
-	    */
    	    apps.setAdapter(new AppsAdapter(getApps()));  
    	    apps.setTextFilterEnabled(true);
    	    
@@ -61,11 +56,6 @@ public class FrontActivity extends TabActivity {
 	    systems.setTextFilterEnabled(true);
 	    
 	    ListView desktops = (ListView)findViewById(R.id.view3);
-	    /*
-	    	    systems.setAdapter(new SimpleAdapter(this, getSystems(),
-	    	            R.layout.systemsitem, new String[] { "title" },
-	    	            new int[] { 0 }));
-	    */
 	    desktops.setAdapter(new DesktopsAdapter(getDesktops()));
 	    desktops.setTextFilterEnabled(true);
 
@@ -157,33 +147,7 @@ public class FrontActivity extends TabActivity {
     	public SystemsAdapter(List<Map<String,Object>> systems) {
     		mSystems = systems;
     	}
-    	
-/*    	
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ImageView i = new ImageView(FrontActivity.this);
-
-            Map<String,Object> info = mSystems.get(position % mSystems.size());
-
-            //Drawable icon = BitmapFactory.decodeResource(FrontActivity.this.getResources(), mSystems.get(position).get("icon"));
-            Drawable icon = FrontActivity.this.getResources().getDrawable(((Integer)(mSystems.get(position).get("icon"))).intValue());
-            i.setImageDrawable(icon);
-//            i.setScaleType(ImageView.ScaleType.FIT_CENTER);
-//            final int w = (int) (36 * FrontActivity.this.getResources().getDisplayMetrics().density + 0.5f);
-//            i.setLayoutParams(new GridView.LayoutParams(w, w));
-            return i;
-        }
-*/
-    	
-/*
-    	public View getView(int position, View convertView, ViewGroup parent) {
-    	    Map<String,Object> info = mSystems.get(position % mSystems.size());
-
-    	    ViewGroup g = new ViewGroup(FrontActivity.this);
-            LayoutInflater.from(FrontActivity.this).inflate(R.layout.systemsitem);
-            ImageView i = getItemById(
-    	}
-*/
-    	
+    	    	
     	public View getView(int position, View convertView, ViewGroup parent) {
             Map<String,Object> info = mSystems.get(position % mSystems.size());
     		
