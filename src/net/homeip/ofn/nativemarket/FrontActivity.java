@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TabHost;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 public class FrontActivity extends TabActivity {
