@@ -11,8 +11,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-    </application>
+        <activity
+        	android:name=".SystemsView"
+			android:label="@string/app_name"
+			android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+		</activity>
+</application>
     <uses-sdk android:minSdkVersion="4" />
 
 </manifest> 

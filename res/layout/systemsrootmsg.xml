@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content">
+<TextView
+	android:text="@string/systemsrootmsg"
+	android:id="@+id/TextView01"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:padding="10dip" />
+<CheckedTextView android:text="@string/systemsrootannoy" android:id="@+id/CheckedTextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom"/>
+<Button android:text="@string/systemsrootdismiss" android:id="@+id/Button01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom"/>
+</LinearLayout>

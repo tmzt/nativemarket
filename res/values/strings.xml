@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Native Market</string>
-    <string name="hello">Hello World, FrontActivity!</string>
+    <string name="hello">Use this application to install native applications, systems and desktops for AndroiX</string>
     <string name="appshello">Native Market</string>
     <string name="desktopshello">Native Market</string>
     <string name="systemshello">Native Market</string>
+	<string name="systemsrootmsg">Installing a full system requires root access. If you don\'t have it you can still install applications or desktops.  The method of gaining root access varies by device and you can find instructions by searching Google.</string>
+	<string name="systemsrootcheck">Check root access.</string>
+	<string name="systemsrootauth">Requesting root access, please confirm this on the notification bar when asked.</string>
+	<string name="systemsrootchecking">Checking root access.</string>
+	<string name="systemsrootsuccess">Found root access.</string>
+	<string name="systemsrootannoy">Show this message again.</string>
+	<string name="systemsrootdismiss">Dismiss</string>
 </resources>

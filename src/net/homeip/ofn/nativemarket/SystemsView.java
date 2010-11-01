@@ -5,22 +5,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.content.Context;
+import android.app.Dialog;
+import android.app.ListActivity;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-public class SystemsView extends ListView {
+public class SystemsView extends ListActivity {
 
-	public SystemsView(Context context) {
-		super(context);
-	    setAdapter(new SystemsAdapter(getSystems()));
-	    setTextFilterEnabled(true);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		//Dialog d = new Dialog(LayoutInflater.from(getContext()).inflate(R.layout.systemsrootmsg, null, false), 100, 100, true);
+		Dialog d = new Dialog(this);
+		d.setContentView(R.layout.systemsrootmsg);
+		d.show();
+		
+	    setListAdapter(new SystemsAdapter(getSystems()));
 	}
 	
     protected List<Map<String, Object>> getSystems() {
@@ -45,7 +51,7 @@ public class SystemsView extends ListView {
 	    	    	
 	    	public View getView(int position, View convertView, ViewGroup parent) {
 	            Map<String,Object> info = mSystems.get(position % mSystems.size());
-	    		View item = LayoutInflater.from(getContext()).inflate(R.layout.systemsitem, null);
+	    		View item = LayoutInflater.from(getBaseContext()).inflate(R.layout.systemsitem, null);
 	    		ImageView i = (ImageView)item.findViewById(R.id.systemsitemicon);
 	    		TextView tv = (TextView)item.findViewById(R.id.systemsitemtitle);
 	            Drawable icon = getResources().getDrawable(((Integer)(mSystems.get(position).get("icon"))).intValue());

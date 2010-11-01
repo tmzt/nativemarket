@@ -1,6 +1,7 @@
 package net.homeip.ofn.nativemarket;
 
 import android.app.TabActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,16 +26,12 @@ public class FrontActivity extends TabActivity {
                 }));
         tabHost.addTab(tabHost.newTabSpec("tab3")
                 .setIndicator("Systems")
-                .setContent(new TabHost.TabContentFactory() {
-					public View createTabContent(String tag) {
-						return new SystemsView(FrontActivity.this);
-					}
-                }));
+                .setContent(new Intent().setClass(this, SystemsView.class)));
         tabHost.addTab(tabHost.newTabSpec("tab3")
                 .setIndicator("Desktops")
                 .setContent(new TabHost.TabContentFactory() {
 					public View createTabContent(String tag) {
-						return new SystemsView(FrontActivity.this);
+						return new DesktopsView(FrontActivity.this);
 					}
                 }));
     }    
