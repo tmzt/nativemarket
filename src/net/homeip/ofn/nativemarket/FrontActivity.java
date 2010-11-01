@@ -163,6 +163,7 @@ public class FrontActivity extends TabActivity {
     		mSystems = systems;
     	}
     	
+/*    	
         public View getView(int position, View convertView, ViewGroup parent) {
             ImageView i = new ImageView(FrontActivity.this);
 
@@ -176,6 +177,32 @@ public class FrontActivity extends TabActivity {
 //            i.setLayoutParams(new GridView.LayoutParams(w, w));
             return i;
         }
+*/
+    	
+/*
+    	public View getView(int position, View convertView, ViewGroup parent) {
+    	    Map<String,Object> info = mSystems.get(position % mSystems.size());
+
+    	    ViewGroup g = new ViewGroup(FrontActivity.this);
+            LayoutInflater.from(FrontActivity.this).inflate(R.layout.systemsitem);
+            ImageView i = getItemById(
+    	} 31
+*/
+    	
+    	public View getView(int position, View convertView, ViewGroup parent) {
+            Map<String,Object> info = mSystems.get(position % mSystems.size());
+    		
+    		View item = LayoutInflater.from(FrontActivity.this).inflate(R.layout.systemsitem, null);
+    		ImageView i = (ImageView)item.findViewById(R.id.icon);
+    		TextView tv = (TextView)item.findViewById(R.id.title);
+            Drawable icon = FrontActivity.this.getResources().getDrawable(((Integer)(mSystems.get(position).get("icon"))).intValue());
+            i.setImageDrawable(icon);
+//          i.setScaleType(ImageView.ScaleType.FIT_CENTER);
+//          final int w = (int) (36 * FrontActivity.this.getResources().getDisplayMetrics().density + 0.5f);
+//          i.setLayoutParams(new GridView.LayoutParams(w, w));
+            tv.setText((String)info.get("title"));
+            return item;
+    	}
         
         public final int getCount() { return mSystems.size(); }
 
@@ -200,8 +227,6 @@ public class FrontActivity extends TabActivity {
 
         	if (mDesktops.get(position).containsKey("icon")) {
                 ImageView i = new ImageView(FrontActivity.this);
-
-                Map<String,Object> info = mDesktops.get(position % mDesktops.size());
 
                 //Drawable icon = BitmapFactory.decodeResource(FrontActivity.this.getResources(), mSystems.get(position).get("icon"));
                 Drawable icon = FrontActivity.this.getResources().getDrawable(((Integer)(mDesktops.get(position).get("icon"))).intValue());
