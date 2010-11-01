@@ -214,29 +214,29 @@ public class FrontActivity extends TabActivity {
     		return mDesktops.get(position);
     	}
     	
-    	public DesktopsAdapter(List<Map<String,Object>> systems) {
-    		mDesktops = systems;
+    	public DesktopsAdapter(List<Map<String,Object>> desktops) {
+    		mDesktops = desktops;
     	}
     	
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-        	if (mDesktops.get(position).containsKey("icon")) {
-                ImageView i = new ImageView(FrontActivity.this);
-
-                //Drawable icon = BitmapFactory.decodeResource(FrontActivity.this.getResources(), mSystems.get(position).get("icon"));
-                Drawable icon = FrontActivity.this.getResources().getDrawable(((Integer)(mDesktops.get(position).get("icon"))).intValue());
+    	public View getView(int position, View convertView, ViewGroup parent) {
+            Map<String,Object> info = mDesktops.get(position % mDesktops.size());
+    		Drawable icon = null;
+            
+    		View item = LayoutInflater.from(FrontActivity.this).inflate(R.layout.desktopsitem, null);
+    		ImageView i = (ImageView)item.findViewById(R.id.desktopsitemicon);
+    		TextView tv = (TextView)item.findViewById(R.id.desktopsitemtitle);
+    		if (info.containsKey("icon")) {
+    			icon = FrontActivity.this.getResources().getDrawable(((Integer)(info.get("icon"))).intValue());
                 i.setImageDrawable(icon);
-//                i.setScaleType(ImageView.ScaleType.FIT_CENTER);
-//                final int w = (int) (36 * FrontActivity.this.getResources().getDisplayMetrics().density + 0.5f);
-//                i.setLayoutParams(new GridView.LayoutParams(w, w));
-                return i;
-        	} else {
-        		TextView tv = new TextView(FrontActivity.this);
-        		tv.setText((String)(mDesktops.get(position).get("title")));
-        		return tv;
-        	}
-        	
-        }
+//              i.setScaleType(ImageView.ScaleType.FIT_CENTER);
+//              final int w = (int) (36 * FrontActivity.this.getResources().getDisplayMetrics().density + 0.5f);
+//              i.setLayoutParams(new GridView.LayoutParams(w, w));
+    		}
+    		if (info.containsKey("title")) {
+    			tv.setText((String)(info.get("title")));
+    		};
+            return item;
+    	}
         
         public final int getCount() { return mDesktops.size(); }
 

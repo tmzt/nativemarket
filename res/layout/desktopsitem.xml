@@ -5,15 +5,15 @@
   android:layout_height="?android:attr/listPreferredItemHeight"
   android:clickable="true" >
 <ImageView
-	android:id="@+id/systemsitemicon"
+	android:id="@+id/desktopsitemicon"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:padding="6dip" />
 <TextView
-	android:id="@+id/systemsitemtitle"
+	android:id="@+id/desktopsitemtitle"
 	android:layout_width="wrap_content"
-	android:layout_height="48dip"
-	android:layout_toRightOf="@id/systemsitemicon"
+	android:layout_height="wrap_content"
+	android:layout_toRightOf="@id/desktopsitemicon"
 	android:layout_alignParentRight="true"
-	android:textSize="32dip" />
+	android:textSize="22dip" />
 </RelativeLayout>
