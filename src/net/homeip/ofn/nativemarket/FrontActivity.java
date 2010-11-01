@@ -87,6 +87,7 @@ public class FrontActivity extends TabActivity {
     	List<Map<String, Object>> systems = new ArrayList<Map<String, Object>>();
         Map<String, Object> item = new HashMap<String, Object>();
         item.put("icon", R.drawable.ubuntu);
+        item.put("title", "Ubuntu 10.4 Natty Narwal Desktop");
         systems.add(item);
         return systems;
     }
@@ -122,28 +123,21 @@ public class FrontActivity extends TabActivity {
     		mApps = systems;
     	}
     	
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-        	if (mApps.get(position).containsKey("icon")) {
-                ImageView i = new ImageView(FrontActivity.this);
-
-                Map<String,Object> info = mApps.get(position % mApps.size());
-
-                //Drawable icon = BitmapFactory.decodeResource(FrontActivity.this.getResources(), mSystems.get(position).get("icon"));
-                Drawable icon = FrontActivity.this.getResources().getDrawable(((Integer)(mApps.get(position).get("icon"))).intValue());
-                i.setImageDrawable(icon);
-//                i.setScaleType(ImageView.ScaleType.FIT_CENTER);
-//                final int w = (int) (36 * FrontActivity.this.getResources().getDisplayMetrics().density + 0.5f);
-//                i.setLayoutParams(new GridView.LayoutParams(w, w));
-                return i;        		
-        	} else {
-        		TextView tv = new TextView(FrontActivity.this);
-        		tv.setText((String)(mApps.get(position).get("title")));
-        		return tv;
-        	}
-        	
-        }
-        
+    	public View getView(int position, View convertView, ViewGroup parent) {
+            Map<String,Object> info = mApps.get(position % mApps.size());
+    		
+    		View item = LayoutInflater.from(FrontActivity.this).inflate(R.layout.appsitem, null);
+    		ImageView i = (ImageView)item.findViewById(R.id.appsitemicon);
+    		TextView tv = (TextView)item.findViewById(R.id.appsitemtitle);
+            Drawable icon = FrontActivity.this.getResources().getDrawable(((Integer)(mApps.get(position).get("icon"))).intValue());
+            i.setImageDrawable(icon);
+//          i.setScaleType(ImageView.ScaleType.FIT_CENTER);
+//          final int w = (int) (36 * FrontActivity.this.getResources().getDisplayMetrics().density + 0.5f);
+//          i.setLayoutParams(new GridView.LayoutParams(w, w));
+            tv.setText((String)info.get("title"));
+            return item;
+    	}
+    	
         public final int getCount() { return mApps.size(); }
 
         public final long getItemId(int position) {
@@ -186,15 +180,15 @@ public class FrontActivity extends TabActivity {
     	    ViewGroup g = new ViewGroup(FrontActivity.this);
             LayoutInflater.from(FrontActivity.this).inflate(R.layout.systemsitem);
             ImageView i = getItemById(
-    	} 31
+    	}
 */
     	
     	public View getView(int position, View convertView, ViewGroup parent) {
             Map<String,Object> info = mSystems.get(position % mSystems.size());
     		
     		View item = LayoutInflater.from(FrontActivity.this).inflate(R.layout.systemsitem, null);
-    		ImageView i = (ImageView)item.findViewById(R.id.icon);
-    		TextView tv = (TextView)item.findViewById(R.id.title);
+    		ImageView i = (ImageView)item.findViewById(R.id.systemsitemicon);
+    		TextView tv = (TextView)item.findViewById(R.id.systemsitemtitle);
             Drawable icon = FrontActivity.this.getResources().getDrawable(((Integer)(mSystems.get(position).get("icon"))).intValue());
             i.setImageDrawable(icon);
 //          i.setScaleType(ImageView.ScaleType.FIT_CENTER);
