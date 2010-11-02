@@ -7,16 +7,19 @@ import java.util.Map;
 
 import android.app.Dialog;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class SystemsView extends ListActivity {
+public class SystemsView extends ListActivity implements OnItemClickListener {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,6 +30,8 @@ public class SystemsView extends ListActivity {
 		d.show();
 		
 	    setListAdapter(new SystemsAdapter(getSystems()));
+	    getListView().setTextFilterEnabled(true);
+	    getListView().setOnItemClickListener(this);
 	}
 	
     protected List<Map<String, Object>> getSystems() {
@@ -37,7 +42,13 @@ public class SystemsView extends ListActivity {
         systems.add(item);
         return systems;
     }
-	
+
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		Intent intent = new Intent().setClass(this, InstallSystem.class);
+		intent.putExtra("title", (String)(getListView().getAdapter().getItem(position)));
+		intent.putExtra("icon", ((Integer)(getListView().getAdapter().getItem(position))).intValue());
+	}
+    
 	class SystemsAdapter extends BaseAdapter {
 	    	private List<Map<String, Object>> mSystems;
 	    	
