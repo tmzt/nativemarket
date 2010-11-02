@@ -26,7 +26,7 @@ public class FrontActivity extends TabActivity {
                 }));
         tabHost.addTab(tabHost.newTabSpec("tab3")
                 .setIndicator("Systems")
-                .setContent(new Intent().setClass(this, SystemsView.class)));
+                .setContent(new Intent().setClass(this, SystemsActivity.class)));
         tabHost.addTab(tabHost.newTabSpec("tab3")
                 .setIndicator("Desktops")
                 .setContent(new TabHost.TabContentFactory() {
