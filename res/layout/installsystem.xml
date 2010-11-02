@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content">
-</LinearLayout>
+  <RelativeLayout
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content">
+	<ImageView
+	 android:id="@+id/installsystemicon"
+	 android:layout_width="wrap_content"
+	 android:layout_height="wrap_content" />
+	<TextView
+	 android:id="@+id/installsystemtitle"
+ 	 android:layout_width="wrap_content"
+	 android:layout_height="48dip"
+	 android:layout_toRightOf="@id/installsystemicon"
+	 android:layout_alignParentRight="true"
+	 android:textSize="32dip" />
+  </RelativeLayout>
+</RelativeLayout>

@@ -44,9 +44,9 @@ public class SystemsActivity extends ListActivity implements OnItemClickListener
     }
 
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		Intent intent = new Intent().setClass(this, InstallSystem.class);
-		intent.putExtra("title", (String)(getListView().getAdapter().getItem(position)));
-		intent.putExtra("icon", ((Integer)(getListView().getAdapter().getItem(position))).intValue());
+		Intent intent = new Intent().setClass(this, InstallSystemActivity.class);
+		intent.putExtra("title", (String)((Map<String,Object>)(getListView().getAdapter().getItem(position))).get("title"));
+		intent.putExtra("icon", ((Integer) ((Map<String,Object>)(getListView().getAdapter().getItem(position))).get("icon")).intValue());
 		startActivity(intent);
 	}
     
