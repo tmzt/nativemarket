@@ -4,8 +4,12 @@ import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 public class InstallSystemActivity extends Activity {
 
@@ -20,5 +24,14 @@ public class InstallSystemActivity extends Activity {
 //          final int w = (int) (36 * FrontActivity.this.getResources().getDisplayMetrics().density + 0.5f);
 //          i.setLayoutParams(new GridView.LayoutParams(w, w));
         tv.setText((String)getIntent().getExtras().get("title"));
+        
+        
+        Button continue1 = (Button)findViewById(R.id.installsystemnext1);
+        continue1.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+		        ViewFlipper flip = (ViewFlipper)findViewById(R.id.installsystemflip);
+				flip.showNext();
+			}
+        });
 	};
 }
