@@ -82,7 +82,4 @@ public class SystemsActivity extends ListActivity implements OnItemClickListener
 	        }
 	
 	    }
-
-
-
 }
