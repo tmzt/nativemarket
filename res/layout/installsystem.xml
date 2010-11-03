@@ -37,12 +37,6 @@
 				 android:layout_height="wrap_content"
 				 android:textSize="12dip" />
 			</ScrollView>
-			<Button
-				android:text="@string/installsystemnext"
-				android:padding="10dip"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textSize="12dip" />
 		</LinearLayout>
 		<LinearLayout
 		  android:layout_width="wrap_content"
@@ -58,13 +52,25 @@
 				android:layout_height="wrap_content"
 				android:textSize="12dip" />
 			</ScrollView>
-			<Button
-				android:id="@+id/installsystemnext1"
-				android:text="@string/installsystemnext"
+		</LinearLayout>
+	</ViewFlipper>
+	<RelativeLayout
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content">
+				<Button
+				android:id="@+id/installsystemprev"
+				android:text="@string/installsystemprev"
 				android:padding="10dip"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:textSize="12dip" />
-		</LinearLayout>
-	</ViewFlipper>
+				<Button
+				android:id="@+id/installsystemnext"
+				android:text="@string/installsystemnext"
+				android:padding="10dip"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/installsystemprev"
+				android:textSize="12dip" />
+	</RelativeLayout>
 </LinearLayout>

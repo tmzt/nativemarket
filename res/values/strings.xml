@@ -14,5 +14,6 @@
 	<string name="systemsrootdismiss">Dismiss</string>
 	<string name="ubuntumsg">Ubuntu 11.04 Natty Narwal is only for devices with Snapdragon, Hummingbird (Samsung Galaxy S), Qualcomm msm7x30 (G2, Desire HD, Desire Z), or OMAP3 (Motorola Droid/Milestone/etc.)\nThis is a full Ubuntu system modified to be usable on your Android device, which allows to install any Ubuntu package compiled from your device, including thousands in the port repository and even more for Debian.\nThis image installs the ubuntu-desktop package and everything it requires and gives you a full Gnome desktop.  Compositing is not supported yet when running on your Android device.  The only modifications made are to allow dbus and related system software to function without full access to the system in the chrooted environment.\nUbuntu will be installed in a file on your SD card or internal memory if your device is supported (only eMMC based devices are).  If you delete this file your Ubuntu system and *ALL DATA* will be gone.</string>
 	<string name="installsysteminstructions">Choose the location for your installation from the following list.  This file will be your entire system, including all of *YOUR DATA*.</string>
+	<string name="installsystemprev">Back</string>
 	<string name="installsystemnext">Continue</string>
 </resources>

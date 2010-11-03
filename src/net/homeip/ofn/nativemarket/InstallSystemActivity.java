@@ -25,9 +25,16 @@ public class InstallSystemActivity extends Activity {
 //          i.setLayoutParams(new GridView.LayoutParams(w, w));
         tv.setText((String)getIntent().getExtras().get("title"));
         
+        Button prev = (Button)findViewById(R.id.installsystemprev);
+        prev.setOnClickListener(new OnClickListener(){
+			public void onClick(View v) {
+		        ViewFlipper flip = (ViewFlipper)findViewById(R.id.installsystemflip);
+				flip.showNext();
+			}
+        });
         
-        Button continue1 = (Button)findViewById(R.id.installsystemnext1);
-        continue1.setOnClickListener(new OnClickListener(){
+        Button next = (Button)findViewById(R.id.installsystemnext);
+        next.setOnClickListener(new OnClickListener(){
 			public void onClick(View v) {
 		        ViewFlipper flip = (ViewFlipper)findViewById(R.id.installsystemflip);
 				flip.showNext();
